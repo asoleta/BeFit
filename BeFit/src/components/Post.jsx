@@ -2,11 +2,16 @@ import React from "react";
 
 const Post = () => {
     return (
-        <div className="Post">
-            <h3>Title</h3>
-            <img src=""></img>
-            <p>This is where the caption will go.</p>
+        <div class="wrapper">
+            <div class="post">
+                <div class="content">
+                <h3>Title</h3>
+                <img src="" alt="Post Image" />
+                <p>This is where the caption will go.</p>
+                </div>
+            </div>
         </div>
+
     );
 }
 
