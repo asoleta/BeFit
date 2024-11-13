@@ -1,0 +1,102 @@
+:root {
+  --text-color:white;
+  --background-color:black;
+  --primary-color:#b1070a;
+  --secondary-color:#0077ff;
+  --accent-color:#f07000;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+p {
+  font-size: 1.1rem;
+}
+
+h1 {
+  font-size: 3rem;
+  color:var(--primary-color);
+}
+
+h2 {
+  font-size: 2.5rem;
+  color:var(--primary-color);
+}
+
+h3 {
+  font-size: 2rem;
+  color: var(--secondary-color)
+}
+
+h4 {
+  font-size: 1.75rem;
+  color: var(--accent-color);
+}
+
+a {
+  font-size: 1.25rem;
+  color: var(--accent-color);
+  cursor: pointer;
+  transition: font-size 0.3s ease, font-size 0.3s ease;
+}
+
+.primary {
+  padding: 1.5rem;
+  margin: .25rem;
+  background-color: var(--primary-color);
+  border-style: none;
+  color: var(--text-color);
+  text-transform: uppercase;
+  border-radius: .5rem;
+  font-weight: 800;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.primary:hover {
+  background-color: #8a0002;
+  cursor:pointer;
+}
+
+.secondary {
+  padding: 1.1rem;
+  margin: .25rem;
+  background-color: var(--secondary-color);
+  border-style: none;
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.secondary:hover {
+  background-color: #004696;
+  cursor:pointer;
+}
+
+.search {
+  font-size: 1.2rem;
+  resize: none;
+  width: 30rem;
+  padding: 1rem;
+  border-radius: 3rem;
+}
+
+.search-container {
+  position:relative;
+  width: 30rem;
+}
+
+.search-btn {
+  position:absolute;
+  top: 50%;
+  right:1px;
+  transform: translateY(-50%);
+  padding: .6rem 1rem;
+  background-color: var(--secondary-color);
+  border-style: none;
+  border-radius: 2rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+}

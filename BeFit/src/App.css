@@ -1,0 +1,42 @@
+body {
+  height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.app {
+  padding: 1.2rem 3rem;
+}
+
+/*Start of NavBar*/
+
+.navbar {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navButtons {
+  display:flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navButtons a {
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.navButtons .secondary a {
+  color: var(--text-color);
+}
+
+/*End of NavBar*/
+
+/*Start of Intro*/
+.intro {
+  line-height: .5rem;
+}
+/*End of Intro*/
