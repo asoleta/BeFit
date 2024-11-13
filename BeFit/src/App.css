@@ -72,4 +72,21 @@ body {
 .post p {
   color: var(--background-color);
 }
+
+.post img {
+  width: 30rem;   /* Fixed width */
+  height: 20rem;  /* Fixed height */
+  object-fit: cover;
+}
+
+.post .expandBtn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    margin-top: 1rem;
+}
+
 /*End of Post*/
