@@ -80,7 +80,7 @@ body {
 }
 
 .post .expandBtn {
-    background-color: #007bff;
+    background-color: var(--accent-color);
     color: white;
     border: none;
     padding: 0.5rem 1rem;
