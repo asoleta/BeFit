@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 
-const Post = ({ title, img_url, caption, likes, id }) => {
+const Post = ({ title, img_url, caption, likes, id, date }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     // Truncate caption to 300 characters and add ellipsis if necessary
@@ -26,6 +26,7 @@ const Post = ({ title, img_url, caption, likes, id }) => {
                         </button>
                     )}
                     <p>{`Likes: ${likes}`}</p>
+                    <p>{`Date Created: ${date}`}</p>
                 </div>
                 </Link>
             </div>
