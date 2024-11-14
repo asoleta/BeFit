@@ -1,9 +1,9 @@
 :root {
   --text-color:white;
-  --background-color:black;
-  --primary-color:#b1070a;
-  --secondary-color:#0077ff;
-  --accent-color:#f07000;
+  --background-color:#000000;
+  --primary-color:#74f0ed;
+  --secondary-color:#ea445a;
+  --accent-color:#cb00e6;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   background-color: var(--background-color);
