@@ -6,6 +6,7 @@ const PostDetail = () => {
   const { postId } = useParams(); // Get postId from URL
   const [post, setPost] = useState(null);
   const navigate = useNavigate(); // Used for navigation after delete
+  const [likes, setLikes] = useState(0);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -21,6 +22,7 @@ const PostDetail = () => {
         console.error("Error fetching post:", error.message);
       } else {
         setPost(data);
+        setLikes(data.likes);
       }
     };
 
@@ -48,12 +50,27 @@ const PostDetail = () => {
 
   if (!post) return <p>Loading...</p>;
 
+  const handleLike = async () => {
+    setLikes(likes + 1);
+
+    const { error } = await supabase
+      .from('posts')
+      .update({ likes: likes + 1 }) // Update likes in the database
+      .eq('id', postId);  // Target the specific post by ID
+
+    if (error) {
+      console.error("Error liking post:", error.message);
+    }
+  };
+
   return (
     <div className="post-detail">
       <h2>{post.title}</h2>
       <img className = "post-img" src={post.img_src} alt={post.title} />
       <p className='post-detail-content'>{post.caption}</p>
+      <p className='post-detail-content'>Likes: {likes}</p>
 
+      <button onClick={handleLike} className='secondary'>Like</button>
       <button onClick={handleEdit} className='primary'>Edit</button>
       <button onClick={handleDelete} className='primary'>Delete</button>
     </div>
