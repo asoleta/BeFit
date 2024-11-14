@@ -4,7 +4,7 @@ import { supabase } from "../client";
 
 import { useState, useEffect } from "react";
 
-const Home = () => {
+const Home = ({searchQuery}) => {
     const [posts, setPosts] = useState([]); //array to hold post info
 
     useEffect(() => {
@@ -12,7 +12,8 @@ const Home = () => {
         const fetchPosts = async() => {
             const { data, error } = await supabase
                 .from('posts')
-                .select('title, img_src, caption, likes');
+                .select("*")
+                .order("created_at", {ascending:false});
 
             if (error) {
                 console.error('Error fetching posts:', error);
@@ -27,6 +28,14 @@ const Home = () => {
 
     }, []);
 
+    // Filter posts based on search query only if the query is not empty
+        const filteredPosts = searchQuery
+        ? posts.filter((post) =>
+            post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            post.caption.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+        : posts;
+
     return (
         <div className ="home">
             <div className='intro'>
@@ -35,14 +44,18 @@ const Home = () => {
             </div>
 
             <div className="postList">
-                {posts.map((post, index) => (
-                    <Post 
-                        key={index}
-                        title={post.title}
-                        img_url={post.img_src}
-                        caption={post.caption}
+                {filteredPosts.length === 0 ? (
+                <p>No posts found matching your search.</p>
+                ) : (
+                filteredPosts.map((post, index) => (
+                    <Post
+                    key={index}
+                    title={post.title}
+                    img_url={post.img_src}
+                    caption={post.caption}
                     />
-                ))}
+                ))
+                )}
             </div>
         </div>
     )
