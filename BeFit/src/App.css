@@ -149,4 +149,7 @@ button:hover {
   background-color: #0056b3;
 }
 
+.error_message {
+  color: var(--background-color);
+}
 /*End of Create Post Page*/
