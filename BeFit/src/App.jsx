@@ -4,6 +4,8 @@ import './App.css'
 import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import Create from './pages/Create';
+import PostDetail from './pages/PostDetail';
+import EditPost from './pages/EditPost';
 
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
@@ -23,6 +25,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home searchQuery={searchQuery}/>}></Route>
             <Route path="/create" element={<Create />}></Route>
+            <Route path="/post/:postId" element={<PostDetail />} />
+            <Route path="/edit/:postId" element={<EditPost />} />
           </Routes>
         
         </div>

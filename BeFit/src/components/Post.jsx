@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 
-const Post = ({ title, img_url, caption }) => {
+const Post = ({ title, img_url, caption, id }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     // Truncate caption to 300 characters and add ellipsis if necessary
@@ -14,6 +15,7 @@ const Post = ({ title, img_url, caption }) => {
     return (
         <div className="wrapper">
             <div className="post">
+                <Link to={`/post/${id}`}>
                 <div className="content">
                     <h3>{title}</h3>
                     <img src={img_url} alt={title} />
@@ -24,6 +26,7 @@ const Post = ({ title, img_url, caption }) => {
                         </button>
                     )}
                 </div>
+                </Link>
             </div>
         </div>
     );

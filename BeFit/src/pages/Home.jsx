@@ -53,6 +53,8 @@ const Home = ({searchQuery}) => {
                     title={post.title}
                     img_url={post.img_src}
                     caption={post.caption}
+                    likes={post.likes}
+                    id={post.id}
                     />
                 ))
                 )}

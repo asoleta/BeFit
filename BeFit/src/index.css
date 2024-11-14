@@ -40,6 +40,7 @@ a {
   color: var(--accent-color);
   cursor: pointer;
   transition: font-size 0.3s ease, font-size 0.3s ease;
+  text-decoration: none;
 }
 
 .primary {
@@ -100,3 +101,4 @@ a {
   font-size: 1.3rem;
   cursor: pointer;
 }
+
