@@ -173,6 +173,31 @@ button:hover {
 .error_message {
   color: var(--background-color);
 }
+
+.captionTB {
+  height: 20rem;
+  resize: none;
+  font-size: 1rem;
+  padding: .5rem;
+}
+
+.popup {
+  position: fixed;
+  top: 20px;
+  right: -300px; /* Start off-screen */
+  background-color: var(--accent-color);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: right 0.5s ease-in-out; /* Smooth slide-in effect */
+}
+
+.popup.show {
+  right: 20px; /* Slide into view */
+}
+
 /*End of Create Post Page*/
 
 /*Start of Post Details Page*/
