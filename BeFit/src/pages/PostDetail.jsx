@@ -35,15 +35,20 @@ const PostDetail = () => {
 
   const handleDelete = async () => {
     const postIdNumber = Number(postId); // Ensure postId is a number
-
+    if (!postIdNumber) {
+      console.error("Invalid post ID");
+      return; // Prevent delete if postId is invalid
+    }
+  
     const { error } = await supabase
       .from('posts')
       .delete()
       .eq('id', postIdNumber);
-
+  
     if (error) {
       console.error("Error deleting post:", error.message);
     } else {
+      console.log('Post deleted successfully');
       navigate('/'); // Redirect to home after delete
     }
   };
