@@ -6,7 +6,7 @@
   --accent-color:#cb00e6;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  background-color: var(--background-color);
+  background: linear-gradient(to right, #583158, #ffcf87);
   color: var(--text-color);
   font-size: 16px;
 }

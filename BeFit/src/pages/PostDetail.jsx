@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { supabase } from "../client"; // Your supabase client
+import { supabase } from "../client";
+import Comment from '../components/Comment';
 
 const PostDetail = () => {
   const { postId } = useParams(); // Get postId from URL
@@ -73,6 +74,8 @@ const PostDetail = () => {
       <button onClick={handleLike} className='secondary'>Like</button>
       <button onClick={handleEdit} className='primary'>Edit</button>
       <button onClick={handleDelete} className='primary'>Delete</button>
+
+      <Comment/>
     </div>
   );
 };
