@@ -83,7 +83,7 @@ const EditPost = () => {
         />
 
         <label htmlFor="caption">Caption:</label>
-        <input
+        <textarea
           type="text"
           id="caption"
           name="caption"
