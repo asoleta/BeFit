@@ -6,6 +6,7 @@ import Comment from '../components/Comment';
 const PostDetail = () => {
   const { postId } = useParams(); // Get postId from URL
   const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true); // Track loading state
   const navigate = useNavigate(); // Used for navigation after delete
   const [likes, setLikes] = useState(0);
 
@@ -25,6 +26,8 @@ const PostDetail = () => {
         setPost(data);
         setLikes(data.likes);
       }
+
+      setLoading(false); // Set loading to false once the data is fetched
     };
 
     fetchPost();
@@ -49,7 +52,15 @@ const PostDetail = () => {
     navigate(`/edit/${postId}`); // Redirect to the edit page
   };
 
-  if (!post) return <p>Loading...</p>;
+  // Show loading spinner while data is being fetched
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
   const handleLike = async () => {
     setLikes(likes + 1);
@@ -67,15 +78,15 @@ const PostDetail = () => {
   return (
     <div className="post-detail">
       <h2>{post.title}</h2>
-      <img className = "post-img" src={post.img_src} alt={post.title} />
-      <p className='post-detail-content'>{post.caption}</p>
-      <p className='post-detail-content'>Likes: {likes}</p>
+      <img className="post-img" src={post.img_src} alt={post.title} />
+      <p className="post-detail-content">{post.caption}</p>
+      <p className="post-detail-content">Likes: {likes}</p>
 
-      <button onClick={handleLike} className='secondary'>Like</button>
-      <button onClick={handleEdit} className='primary'>Edit</button>
-      <button onClick={handleDelete} className='primary'>Delete</button>
+      <button onClick={handleLike} className="secondary">Like</button>
+      <button onClick={handleEdit} className="primary">Edit</button>
+      <button onClick={handleDelete} className="primary">Delete</button>
 
-      <Comment/>
+      <Comment postId={postId} />
     </div>
   );
 };
